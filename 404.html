@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>automatiks.io | KI-Automatisierung für den Mittelstand in Franken & Oberpfalz</title>
+  <meta name="description" content="Maßgeschneiderte KI-Automatisierungen für Marketing, Vertrieb & Service. Gewinnen Sie Zeit zurück und senken Sie Kosten – trotz Fachkräftemangel. Entwickelt für KMU aus Franken & der Oberpfalz.">
+  <meta name="keywords" content="KI Automatisierung, Mittelstand, Franken, Oberpfalz, Marketing Automation, Vertriebsautomatisierung, KI Anrufbeantworter, Prozessoptimierung">
+  <meta name="author" content="automatiks.io - Christian Kastner">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://automatiks.io/">
+  <meta property="og:title" content="automatiks.io | KI-Automatisierung für den Mittelstand">
+  <meta property="og:description" content="Maßgeschneiderte KI-Automatisierungen für Marketing, Vertrieb & Service. Gewinnen Sie Zeit zurück und senken Sie Kosten.">
+  <meta property="og:image" content="https://automatiks.io/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="automatiks.io | KI-Automatisierung für den Mittelstand">
+  <meta name="twitter:description" content="Maßgeschneiderte KI-Automatisierungen für Marketing, Vertrieb & Service.">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://automatiks.io/">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#4285F4',
+              black: '#000000',
+              white: '#FFFFFF',
+              graphite: '#78818E',
+              light: '#F8FAFC',
+              dark: '#0f172a',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            heading: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'blob': 'blob 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1)',
+            'fade-in': 'fadeIn 0.8s ease-out forwards',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s ease-in-out infinite',
+            'gradient': 'gradient 8s ease infinite',
+            'shimmer': 'shimmer 2s linear infinite',
+            'bounce-slow': 'bounce 3s ease-in-out infinite',
+            'spin-slow': 'spin 8s linear infinite',
+            'slide-up': 'slideUp 0.5s ease-out forwards',
+            'scale-in': 'scaleIn 0.5s ease-out forwards',
+            'counter': 'counter 2s ease-out forwards',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1) rotate(0deg)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1) rotate(120deg)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.95) rotate(240deg)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1) rotate(360deg)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+              '50%': { transform: 'translateY(-15px) rotate(2deg)' },
+            },
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(100%)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            scaleIn: {
+              '0%': { transform: 'scale(0.9)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+          },
+          backgroundSize: {
+            '400%': '400% 400%',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Base Styles */
+    * {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      background-color: #F8FAFC;
+      color: #000000;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Selection */
+    ::selection {
+      background: #4285F4;
+      color: white;
+    }
+
+    /* Advanced Glassmorphism */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.07),
+        inset 0 0 0 1px rgba(255,255,255,0.1);
+    }
+
+    .glass-card-dark {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .glass-button {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Gradient Text */
+    .text-gradient {
+      background: linear-gradient(135deg, #000000 0%, #4285F4 50%, #000000 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient 4s ease infinite;
+    }
+    
+    .text-gradient-blue {
+      background: linear-gradient(135deg, #4285F4 0%, #60a5fa 50%, #4285F4 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient 3s ease infinite;
+    }
+
+    /* Animated Gradient Background */
+    .gradient-bg {
+      background: linear-gradient(-45deg, #4285F4, #60a5fa, #3b82f6, #2563eb);
+      background-size: 400% 400%;
+      animation: gradient 8s ease infinite;
+    }
+    
+    /* Mesh Gradient */
+    .mesh-gradient {
+      background: 
+        radial-gradient(at 40% 20%, rgba(66, 133, 244, 0.15) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, rgba(147, 51, 234, 0.1) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, rgba(66, 133, 244, 0.1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.1) 0px, transparent 50%);
+    }
+
+    /* Glow Effects */
+    .glow-blue {
+      box-shadow: 0 0 40px rgba(66, 133, 244, 0.3);
+    }
+    
+    .glow-blue-strong {
+      box-shadow: 0 0 60px rgba(66, 133, 244, 0.5);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Animated Border */
+    .animated-border {
+      position: relative;
+      background: linear-gradient(white, white) padding-box,
+                  linear-gradient(135deg, #4285F4, #60a5fa, #4285F4) border-box;
+      border: 2px solid transparent;
+      background-size: 200% 200%;
+      animation: gradient 4s ease infinite;
+    }
+
+    /* Number Counter Animation */
+    @property --num {
+      syntax: '<integer>';
+      initial-value: 0;
+      inherits: false;
+    }
+    
+    .counter {
+      animation: counter 2s ease-out forwards;
+      counter-reset: num var(--num);
+    }
+    
+    .counter::after {
+      content: counter(num);
+    }
+
+    /* Hover Lift */
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    /* Button Shine Effect */
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shine::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.3) 50%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: rotate(30deg);
+      transition: transform 0.5s;
+    }
+    .btn-shine:hover::after {
+      transform: rotate(30deg) translateX(100%);
+    }
+
+    /* Dot Pattern */
+    .dot-pattern {
+      background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    /* Line Pattern */
+    .line-pattern {
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 50px,
+        rgba(66, 133, 244, 0.03) 50px,
+        rgba(66, 133, 244, 0.03) 51px
+      );
+    }
+
+    /* Focus States */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #4285F4;
+      outline-offset: 2px;
+    }
+
+    /* Print Styles */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "automatiks.io",
+    "description": "KI-Automatisierung für den Mittelstand in Franken & Oberpfalz",
+    "url": "https://automatiks.io",
+    "logo": "https://automatiks.io/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+49-151-29527634",
+      "contactType": "sales",
+      "availableLanguage": ["German"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Herzogenaurach",
+      "addressRegion": "Bayern",
+      "addressCountry": "DE"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/automatiks-io"
+    ]
+  }
+  </script>
+  
+
+  
+  <link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "react/": "https://esm.sh/react@18.2.0/",
+      "react": "https://esm.sh/react@18.2.0",
+      "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+      "react-dom": "https://esm.sh/react-dom@18.2.0",
+      "lucide-react": "https://esm.sh/lucide-react@0.300.0"
+    }
+  }
+  </script>
+  <script type="module" crossorigin src="/assets/index-C4n6FB-K.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <!-- Cookie Consent Placeholder -->
+  <noscript>
+    <p style="padding: 20px; text-align: center;">
+      Diese Website benötigt JavaScript für die volle Funktionalität.
+    </p>
+  </noscript>
+</body>
+</html>
