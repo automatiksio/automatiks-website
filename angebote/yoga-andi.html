@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angebot - Buchungs- & Abrechnungssystem | automatiks.io</title>
+    <title>Angebot - Buchungs- & Abrechnungssystem | Christian Kastner Digital Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -52,13 +52,17 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--dark);
+            line-height: 1.3;
         }
 
         .logo span {
-            color: var(--dark);
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--light);
         }
 
         .company-info {
@@ -246,10 +250,6 @@
             border-top: 2px solid rgba(255,255,255,0.3);
         }
 
-        .summary-row.discount {
-            color: var(--success);
-        }
-
         /* Timeline */
         .timeline {
             margin-top: 8mm;
@@ -336,6 +336,18 @@
             color: var(--light);
         }
 
+        .bank-info {
+            margin-top: 8mm;
+            padding: 4mm;
+            background: var(--lighter);
+            border-radius: 4px;
+            font-size: 9pt;
+        }
+
+        .bank-info strong {
+            color: var(--dark);
+        }
+
         /* Print */
         @media print {
             body {
@@ -365,11 +377,14 @@
     <!-- SEITE 1 -->
     <div class="page">
         <header class="header">
-            <div class="logo">automatiks<span>.io</span></div>
+            <div class="logo">
+                Christian Kastner
+                <span>Digital Solutions</span>
+            </div>
             <div class="company-info">
-                Christian Kastner<br>
-                Herzogenaurach, Bayern<br>
-                info@automatiks.io
+                Schubertring 45, 91074 Herzogenaurach<br>
+                Tel. 0151 41679955<br>
+                info@christiankastner.de
             </div>
         </header>
 
@@ -393,8 +408,8 @@
 
         <div class="intro">
             <p>
-                Basierend auf unserem Gespräch erstellen wir Ihnen ein <strong>vollständiges Buchungs- und Abrechnungssystem</strong>, 
-                das Ihre bestehende MindBody-Lösung ablöst. Das System basiert auf GoHighLevel und wird mit LexOffice 
+                Basierend auf unserem Gespräch erstelle ich dir ein <strong>vollständiges Buchungs- und Abrechnungssystem</strong>, 
+                das deine bestehende MindBody-Lösung ablöst. Das System baut auf GoHighLevel auf und wird mit LexOffice 
                 für die Rechnungsstellung sowie einer iPad-App für den Check-in vor Ort ergänzt.
             </p>
         </div>
@@ -402,8 +417,8 @@
         <div class="highlight-box">
             <div class="highlight-icon">🚀</div>
             <div class="highlight-text">
-                <strong>Multiplikations-ready:</strong> Das System wird so aufgebaut, dass Sie es als Snapshot 
-                an weitere Studios und YOGAPRENEUR-Kunden weitergeben können. Alle Einstellungen sind über 
+                <strong>Multiplikations-ready:</strong> Das System wird so aufgebaut, dass du es als Snapshot 
+                an weitere Studios und YOGAPRENEUR-Kunden weitergeben kannst. Alle Einstellungen sind über 
                 Custom Values konfigurierbar – einmal gebaut, beliebig oft genutzt.
             </div>
         </div>
@@ -432,7 +447,7 @@
         <div class="module">
             <div class="module-header">
                 <div class="module-title">Modul 2: iPad Check-in App</div>
-                <div class="module-price">1.800 €</div>
+                <div class="module-price">1.500 €</div>
             </div>
             <p class="module-desc">
                 Web-App für das iPad im Studio. Kunden können sich selbst einchecken, 
@@ -451,7 +466,7 @@
         <div class="module">
             <div class="module-header">
                 <div class="module-title">Modul 3: LexOffice Anbindung</div>
-                <div class="module-price">1.500 €</div>
+                <div class="module-price">1.800 €</div>
             </div>
             <p class="module-desc">
                 Vollständige Integration mit LexOffice für automatische Rechnungsstellung, 
@@ -472,7 +487,7 @@
                 <div class="module-price">800 €</div>
             </div>
             <p class="module-desc">
-                Übernahme Ihrer bestehenden Kundendaten und Guthaben aus MindBody in das neue System.
+                Übernahme deiner bestehenden Kundendaten und Guthaben aus MindBody in das neue System.
             </p>
             <div class="module-features">
                 <span class="feature-tag">Kundendaten-Export</span>
@@ -489,23 +504,19 @@
             </div>
             <div class="summary-row">
                 <span>Modul 2: iPad Check-in App</span>
-                <span>1.800 €</span>
+                <span>1.500 €</span>
             </div>
             <div class="summary-row">
                 <span>Modul 3: LexOffice Anbindung</span>
-                <span>1.500 €</span>
+                <span>1.800 €</span>
             </div>
             <div class="summary-row" style="opacity: 0.6;">
                 <span>Modul 4: Migration (optional)</span>
                 <span>800 €</span>
             </div>
-            <div class="summary-row discount">
-                <span>Paketrabatt (Module 1-3)</span>
-                <span>- 500 €</span>
-            </div>
             <div class="summary-row total">
                 <span>Gesamtpreis (Module 1-3)</span>
-                <span>4.000 €</span>
+                <span>4.500 €</span>
             </div>
         </div>
 
@@ -513,33 +524,33 @@
             <h2 class="section-title">Zeitplan</h2>
             <div class="timeline-row">
                 <div class="timeline-phase">Phase 1</div>
-                <div class="timeline-duration">2 Wochen</div>
-                <div class="timeline-content">Buchungssystem in GHL aufbauen und testen</div>
+                <div class="timeline-duration">1-2 Wochen</div>
+                <div class="timeline-content">Guthaben-System in GHL aufbauen und testen</div>
             </div>
             <div class="timeline-row">
                 <div class="timeline-phase">Phase 2</div>
-                <div class="timeline-duration">1-2 Wochen</div>
+                <div class="timeline-duration">1 Woche</div>
                 <div class="timeline-content">iPad Check-in App entwickeln</div>
             </div>
             <div class="timeline-row">
                 <div class="timeline-phase">Phase 3</div>
-                <div class="timeline-duration">1 Woche</div>
+                <div class="timeline-duration">1-2 Wochen</div>
                 <div class="timeline-content">LexOffice Integration + Workflows</div>
             </div>
             <div class="timeline-row">
                 <div class="timeline-phase">Go-Live</div>
                 <div class="timeline-duration">1 Woche</div>
-                <div class="timeline-content">Feinschliff, Schulung, Live-Schaltung</div>
+                <div class="timeline-content">Feinschliff, Test vor Ort, Live-Schaltung</div>
             </div>
             <div class="timeline-row" style="border-bottom: none; font-weight: 600;">
                 <div class="timeline-phase"></div>
-                <div class="timeline-duration" style="color: var(--primary);">5-6 Wochen</div>
+                <div class="timeline-duration" style="color: var(--primary);">4-6 Wochen</div>
                 <div class="timeline-content" style="color: var(--dark);">Gesamtdauer</div>
             </div>
         </div>
 
         <div class="footer">
-            <div>automatiks.io | Christian Kastner</div>
+            <div>Christian Kastner Digital Solutions</div>
             <div>Seite 1 von 2</div>
         </div>
     </div>
@@ -547,7 +558,10 @@
     <!-- SEITE 2 -->
     <div class="page">
         <header class="header">
-            <div class="logo">automatiks<span>.io</span></div>
+            <div class="logo">
+                Christian Kastner
+                <span>Digital Solutions</span>
+            </div>
             <div class="company-info">
                 Angebot für Andreas Wagner<br>
                 03. Februar 2026
@@ -559,14 +573,14 @@
             <ul>
                 <li>50% bei Auftragserteilung</li>
                 <li>50% bei Go-Live / Abnahme</li>
-                <li>Zahlungsziel: 14 Tage netto</li>
+                <li>Zahlungsziel: 7 Tage netto</li>
             </ul>
 
             <h3>Voraussetzungen</h3>
             <ul>
                 <li>Bestehender GoHighLevel Account (vorhanden ✓)</li>
                 <li>LexOffice Account mit API-Zugang (wird benötigt)</li>
-                <li>iPad für Check-in Terminal (wird vom Kunden gestellt)</li>
+                <li>iPad für Check-in Terminal – Testing erfolgt bei mir, Endtest vor Ort durch dich</li>
             </ul>
 
             <h3>Im Preis enthalten</h3>
@@ -594,10 +608,10 @@
             </p>
             <ul style="margin-top: 3mm;">
                 <li><strong>Eigene Studios:</strong> Einfache Übernahme in weitere Standorte</li>
-                <li><strong>YOGAPRENEUR:</strong> Weiterverkauf an Ihre GoHighLevel-Kunden</li>
+                <li><strong>YOGAPRENEUR:</strong> Weiterverkauf an deine GoHighLevel-Kunden</li>
             </ul>
             <p style="margin-top: 3mm;">
-                Die Rechte am Snapshot verbleiben bei Ihnen – Sie können ihn beliebig oft nutzen und vertreiben.
+                Die Rechte am Snapshot verbleiben bei dir – du kannst ihn beliebig oft nutzen und vertreiben.
             </p>
 
             <h3>Änderungen & Erweiterungen</h3>
@@ -605,6 +619,13 @@
                 Änderungswünsche während der Umsetzung sind möglich. Umfangreichere Erweiterungen, 
                 die über den hier definierten Scope hinausgehen, werden nach Aufwand berechnet (120 €/Std netto).
             </p>
+
+            <div class="bank-info">
+                <strong>Bankverbindung</strong><br>
+                Revolut Bank UAB<br>
+                IBAN: DE23 1001 0178 9061 9632 51<br>
+                BIC: REVODEB2
+            </div>
         </div>
 
         <div class="signature-section">
@@ -619,7 +640,10 @@
         </div>
 
         <div class="footer" style="margin-top: auto;">
-            <div>automatiks.io | Christian Kastner | info@automatiks.io</div>
+            <div>
+                Christian Kastner Digital Solutions | Schubertring 45, 91074 Herzogenaurach<br>
+                USt.-ID: DE286417522 | Steuer-Nr.: 83227/46940 | Inhaber: Christian Kastner
+            </div>
             <div>Seite 2 von 2</div>
         </div>
     </div>
