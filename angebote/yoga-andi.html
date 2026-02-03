@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angebot - Buchungs- & Abrechnungssystem | automatiks.io</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4285F4;
+            --primary-dark: #3367D6;
+            --dark: #1a1a1a;
+            --medium: #4a4a4a;
+            --light: #6a6a6a;
+            --lighter: #f5f7fa;
+            --white: #ffffff;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            color: var(--dark);
+            background: #e0e0e0;
+            line-height: 1.6;
+            font-size: 11pt;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: var(--white);
+            margin: 20px auto;
+            padding: 15mm 20mm;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 8mm;
+            border-bottom: 3px solid var(--primary);
+            margin-bottom: 8mm;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--dark);
+        }
+
+        .company-info {
+            text-align: right;
+            font-size: 9pt;
+            color: var(--light);
+            line-height: 1.5;
+        }
+
+        /* Meta Info */
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10mm;
+        }
+
+        .meta-left, .meta-right {
+            font-size: 10pt;
+        }
+
+        .meta-label {
+            color: var(--light);
+            font-size: 9pt;
+            margin-bottom: 1mm;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Title */
+        .title-section {
+            background: var(--lighter);
+            padding: 6mm;
+            border-radius: 4px;
+            margin-bottom: 8mm;
+        }
+
+        .title {
+            font-size: 18pt;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 2mm;
+        }
+
+        .subtitle {
+            font-size: 11pt;
+            color: var(--medium);
+        }
+
+        /* Intro */
+        .intro {
+            margin-bottom: 8mm;
+            color: var(--medium);
+            line-height: 1.7;
+        }
+
+        .intro strong {
+            color: var(--dark);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary), #60a5fa);
+            color: white;
+            padding: 5mm 6mm;
+            border-radius: 4px;
+            margin-bottom: 8mm;
+            display: flex;
+            align-items: center;
+            gap: 4mm;
+        }
+
+        .highlight-icon {
+            font-size: 24px;
+        }
+
+        .highlight-text {
+            font-size: 10pt;
+            line-height: 1.5;
+        }
+
+        .highlight-text strong {
+            font-weight: 700;
+        }
+
+        /* Modules */
+        .section-title {
+            font-size: 13pt;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5mm;
+            padding-bottom: 2mm;
+            border-bottom: 2px solid var(--lighter);
+        }
+
+        .module {
+            margin-bottom: 6mm;
+            padding: 5mm;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3mm;
+        }
+
+        .module-title {
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .module-price {
+            font-size: 14pt;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .module-desc {
+            font-size: 10pt;
+            color: var(--medium);
+            margin-bottom: 3mm;
+        }
+
+        .module-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2mm;
+        }
+
+        .feature-tag {
+            background: var(--lighter);
+            color: var(--medium);
+            font-size: 9pt;
+            padding: 1.5mm 3mm;
+            border-radius: 3px;
+        }
+
+        .module.optional {
+            border-style: dashed;
+            opacity: 0.85;
+        }
+
+        .optional-badge {
+            background: var(--lighter);
+            color: var(--light);
+            font-size: 8pt;
+            font-weight: 600;
+            padding: 1mm 2.5mm;
+            border-radius: 2px;
+            margin-left: 3mm;
+        }
+
+        /* Summary */
+        .summary {
+            background: var(--dark);
+            color: var(--white);
+            padding: 6mm;
+            border-radius: 4px;
+            margin-top: 8mm;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 2mm 0;
+            font-size: 10pt;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        .summary-row.total {
+            font-size: 14pt;
+            font-weight: 700;
+            padding-top: 4mm;
+            margin-top: 2mm;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .summary-row.discount {
+            color: var(--success);
+        }
+
+        /* Timeline */
+        .timeline {
+            margin-top: 8mm;
+        }
+
+        .timeline-row {
+            display: flex;
+            gap: 4mm;
+            padding: 3mm 0;
+            border-bottom: 1px solid var(--lighter);
+        }
+
+        .timeline-phase {
+            width: 25mm;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 10pt;
+        }
+
+        .timeline-duration {
+            width: 20mm;
+            color: var(--light);
+            font-size: 10pt;
+        }
+
+        .timeline-content {
+            flex: 1;
+            font-size: 10pt;
+            color: var(--medium);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 10mm;
+            padding-top: 5mm;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 9pt;
+            color: var(--light);
+        }
+
+        /* Page 2 */
+        .terms {
+            font-size: 9pt;
+            color: var(--medium);
+            line-height: 1.7;
+        }
+
+        .terms h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 5mm 0 3mm;
+        }
+
+        .terms ul {
+            margin-left: 5mm;
+            margin-bottom: 3mm;
+        }
+
+        .terms li {
+            margin-bottom: 1.5mm;
+        }
+
+        .signature-section {
+            margin-top: 15mm;
+            display: flex;
+            gap: 20mm;
+        }
+
+        .signature-box {
+            flex: 1;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid var(--dark);
+            height: 15mm;
+            margin-bottom: 2mm;
+        }
+
+        .signature-label {
+            font-size: 9pt;
+            color: var(--light);
+        }
+
+        /* Print */
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- SEITE 1 -->
+    <div class="page">
+        <header class="header">
+            <div class="logo">automatiks<span>.io</span></div>
+            <div class="company-info">
+                Christian Kastner<br>
+                Herzogenaurach, Bayern<br>
+                info@automatiks.io
+            </div>
+        </header>
+
+        <div class="meta">
+            <div class="meta-left">
+                <div class="meta-label">Angebot für</div>
+                <div class="meta-value">Andreas Wagner</div>
+                <div style="color: var(--light); font-size: 9pt;">Andreas Wagner Kompetenzzentrum</div>
+            </div>
+            <div class="meta-right" style="text-align: right;">
+                <div class="meta-label">Datum</div>
+                <div class="meta-value">03. Februar 2026</div>
+                <div style="color: var(--light); font-size: 9pt; margin-top: 2mm;">Gültig bis: 03. März 2026</div>
+            </div>
+        </div>
+
+        <div class="title-section">
+            <h1 class="title">Buchungs- & Abrechnungssystem für Yoga-Studios</h1>
+            <p class="subtitle">GoHighLevel + LexOffice + iPad Check-in</p>
+        </div>
+
+        <div class="intro">
+            <p>
+                Basierend auf unserem Gespräch erstellen wir Ihnen ein <strong>vollständiges Buchungs- und Abrechnungssystem</strong>, 
+                das Ihre bestehende MindBody-Lösung ablöst. Das System basiert auf GoHighLevel und wird mit LexOffice 
+                für die Rechnungsstellung sowie einer iPad-App für den Check-in vor Ort ergänzt.
+            </p>
+        </div>
+
+        <div class="highlight-box">
+            <div class="highlight-icon">🚀</div>
+            <div class="highlight-text">
+                <strong>Multiplikations-ready:</strong> Das System wird so aufgebaut, dass Sie es als Snapshot 
+                an weitere Studios und YOGAPRENEUR-Kunden weitergeben können. Alle Einstellungen sind über 
+                Custom Values konfigurierbar – einmal gebaut, beliebig oft genutzt.
+            </div>
+        </div>
+
+        <h2 class="section-title">Leistungsumfang</h2>
+
+        <div class="module">
+            <div class="module-header">
+                <div class="module-title">Modul 1: Buchungssystem (GoHighLevel)</div>
+                <div class="module-price">2.500 €</div>
+            </div>
+            <p class="module-desc">
+                Komplettes Buchungssystem als GHL-Snapshot. Kunden können sich für Kurse anmelden, 
+                Kontingente (10er-Karten) erwerben und ihre Buchungen verwalten.
+            </p>
+            <div class="module-features">
+                <span class="feature-tag">Kontakt-Struktur mit Guthaben-Tracking</span>
+                <span class="feature-tag">Kurskalender & Buchungsformulare</span>
+                <span class="feature-tag">Buchungsbestätigung & Storno</span>
+                <span class="feature-tag">Alert bei Guthaben = 0</span>
+                <span class="feature-tag">Custom Values für Konfiguration</span>
+                <span class="feature-tag">Snapshot-Export für Weiterverkauf</span>
+            </div>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <div class="module-title">Modul 2: iPad Check-in App</div>
+                <div class="module-price">1.800 €</div>
+            </div>
+            <p class="module-desc">
+                Web-App für das iPad im Studio. Kunden können sich selbst einchecken, 
+                Guthaben einsehen und bei Bedarf direkt nachbuchen.
+            </p>
+            <div class="module-features">
+                <span class="feature-tag">Kundensuche (Name/Email)</span>
+                <span class="feature-tag">Guthaben-Anzeige</span>
+                <span class="feature-tag">Check-in mit einem Tap</span>
+                <span class="feature-tag">Kontingent nachbuchen</span>
+                <span class="feature-tag">Neukunden-Erfassung</span>
+                <span class="feature-tag">Lange Session (kein ständiges Login)</span>
+            </div>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <div class="module-title">Modul 3: LexOffice Anbindung</div>
+                <div class="module-price">1.500 €</div>
+            </div>
+            <p class="module-desc">
+                Vollständige Integration mit LexOffice für automatische Rechnungsstellung, 
+                Zahlungsüberwachung und Mahnwesen.
+            </p>
+            <div class="module-features">
+                <span class="feature-tag">Kontakt-Synchronisation</span>
+                <span class="feature-tag">Automatische Rechnungserstellung</span>
+                <span class="feature-tag">Rechnungsversand per Email</span>
+                <span class="feature-tag">Zahlungsstatus-Prüfung</span>
+                <span class="feature-tag">Zahlungserinnerungen (konfigurierbar)</span>
+            </div>
+        </div>
+
+        <div class="module optional">
+            <div class="module-header">
+                <div class="module-title">Modul 4: MindBody Migration <span class="optional-badge">OPTIONAL</span></div>
+                <div class="module-price">800 €</div>
+            </div>
+            <p class="module-desc">
+                Übernahme Ihrer bestehenden Kundendaten und Guthaben aus MindBody in das neue System.
+            </p>
+            <div class="module-features">
+                <span class="feature-tag">Kundendaten-Export</span>
+                <span class="feature-tag">Import in GHL</span>
+                <span class="feature-tag">Guthaben übernehmen</span>
+                <span class="feature-tag">Datenbereinigung</span>
+            </div>
+        </div>
+
+        <div class="summary">
+            <div class="summary-row">
+                <span>Modul 1: Buchungssystem</span>
+                <span>2.500 €</span>
+            </div>
+            <div class="summary-row">
+                <span>Modul 2: iPad Check-in App</span>
+                <span>1.800 €</span>
+            </div>
+            <div class="summary-row">
+                <span>Modul 3: LexOffice Anbindung</span>
+                <span>1.500 €</span>
+            </div>
+            <div class="summary-row" style="opacity: 0.6;">
+                <span>Modul 4: Migration (optional)</span>
+                <span>800 €</span>
+            </div>
+            <div class="summary-row discount">
+                <span>Paketrabatt (Module 1-3)</span>
+                <span>- 580 €</span>
+            </div>
+            <div class="summary-row total">
+                <span>Gesamtpreis (Module 1-3)</span>
+                <span>5.220 €</span>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <h2 class="section-title">Zeitplan</h2>
+            <div class="timeline-row">
+                <div class="timeline-phase">Phase 1</div>
+                <div class="timeline-duration">2 Wochen</div>
+                <div class="timeline-content">Buchungssystem in GHL aufbauen und testen</div>
+            </div>
+            <div class="timeline-row">
+                <div class="timeline-phase">Phase 2</div>
+                <div class="timeline-duration">1-2 Wochen</div>
+                <div class="timeline-content">iPad Check-in App entwickeln</div>
+            </div>
+            <div class="timeline-row">
+                <div class="timeline-phase">Phase 3</div>
+                <div class="timeline-duration">1 Woche</div>
+                <div class="timeline-content">LexOffice Integration + Workflows</div>
+            </div>
+            <div class="timeline-row">
+                <div class="timeline-phase">Go-Live</div>
+                <div class="timeline-duration">1 Woche</div>
+                <div class="timeline-content">Feinschliff, Schulung, Live-Schaltung</div>
+            </div>
+            <div class="timeline-row" style="border-bottom: none; font-weight: 600;">
+                <div class="timeline-phase"></div>
+                <div class="timeline-duration" style="color: var(--primary);">5-6 Wochen</div>
+                <div class="timeline-content" style="color: var(--dark);">Gesamtdauer</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>automatiks.io | Christian Kastner</div>
+            <div>Seite 1 von 2</div>
+        </div>
+    </div>
+
+    <!-- SEITE 2 -->
+    <div class="page">
+        <header class="header">
+            <div class="logo">automatiks<span>.io</span></div>
+            <div class="company-info">
+                Angebot für Andreas Wagner<br>
+                03. Februar 2026
+            </div>
+        </header>
+
+        <div class="terms">
+            <h3>Zahlungsbedingungen</h3>
+            <ul>
+                <li>50% bei Auftragserteilung</li>
+                <li>50% bei Go-Live / Abnahme</li>
+                <li>Zahlungsziel: 14 Tage netto</li>
+            </ul>
+
+            <h3>Voraussetzungen</h3>
+            <ul>
+                <li>Bestehender GoHighLevel Account (vorhanden ✓)</li>
+                <li>LexOffice Account mit API-Zugang (wird benötigt)</li>
+                <li>iPad für Check-in Terminal (wird vom Kunden gestellt)</li>
+            </ul>
+
+            <h3>Im Preis enthalten</h3>
+            <ul>
+                <li>Konzeption und technische Umsetzung</li>
+                <li>Snapshot-Export für Weiterverkauf an andere Studios</li>
+                <li>Dokumentation der Custom Values und Konfiguration</li>
+                <li>1x Schulung / Übergabe (remote, ca. 1 Stunde)</li>
+                <li>2 Wochen Support nach Go-Live für Feinkorrekturen</li>
+            </ul>
+
+            <h3>Nicht enthalten</h3>
+            <ul>
+                <li>Laufende GoHighLevel Lizenzkosten</li>
+                <li>Laufende LexOffice Lizenzkosten</li>
+                <li>Hardware (iPad)</li>
+                <li>Laufender Support / Wartung (optional buchbar)</li>
+            </ul>
+
+            <h3>Snapshot / Weiterverkauf</h3>
+            <p style="margin-top: 2mm;">
+                Das System wird so konzipiert, dass es als <strong>GoHighLevel Snapshot</strong> exportiert und 
+                in andere Accounts importiert werden kann. Alle individuellen Einstellungen (Preise, Texte, 
+                Studio-Name, etc.) sind über Custom Values konfigurierbar. Dies ermöglicht:
+            </p>
+            <ul style="margin-top: 3mm;">
+                <li><strong>Eigene Studios:</strong> Einfache Übernahme in weitere Standorte</li>
+                <li><strong>YOGAPRENEUR:</strong> Weiterverkauf an Ihre GoHighLevel-Kunden</li>
+            </ul>
+            <p style="margin-top: 3mm;">
+                Die Rechte am Snapshot verbleiben bei Ihnen – Sie können ihn beliebig oft nutzen und vertreiben.
+            </p>
+
+            <h3>Änderungen & Erweiterungen</h3>
+            <p style="margin-top: 2mm;">
+                Änderungswünsche während der Umsetzung sind möglich. Umfangreichere Erweiterungen, 
+                die über den hier definierten Scope hinausgehen, werden nach Aufwand berechnet (120 €/Std netto).
+            </p>
+        </div>
+
+        <div class="signature-section">
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <div class="signature-label">Ort, Datum</div>
+            </div>
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <div class="signature-label">Unterschrift Auftraggeber</div>
+            </div>
+        </div>
+
+        <div class="footer" style="margin-top: auto;">
+            <div>automatiks.io | Christian Kastner | info@automatiks.io</div>
+            <div>Seite 2 von 2</div>
+        </div>
+    </div>
+</body>
+</html>
