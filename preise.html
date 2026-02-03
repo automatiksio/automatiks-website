@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preise | automatiks.io – KI-Assistenten für den Mittelstand</title>
+  <meta name="description" content="Transparente Preise für KI-Anrufbeantworter, Omni-Channel Chatbots und Kombi-Pakete. Ab 79€/Monat. Keine versteckten Kosten.">
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#4285F4',
+              black: '#000000',
+              graphite: '#78818E',
+              light: '#F8FAFC',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .gradient-text { 
+      background: linear-gradient(135deg, #4285F4 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-bg { background: linear-gradient(135deg, #4285F4 0%, #60a5fa 50%, #3b82f6 100%); }
+    .gradient-purple { background: linear-gradient(135deg, #4285F4, #8b5cf6); }
+    .hover-lift { transition: transform 0.3s, box-shadow 0.3s; }
+    .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+  </style>
+</head>
+<body class="bg-brand-light min-h-screen">
+  
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-xl z-50 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/logo.svg" alt="automatiks.io" class="h-8">
+      </a>
+      <a href="/#kontakt" class="gradient-bg text-white font-semibold px-5 py-2.5 rounded-xl hover:opacity-90 transition-opacity">
+        Kostenlos beraten
+      </a>
+    </div>
+  </header>
+  
+  <!-- Hero -->
+  <section class="pt-32 pb-16 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="inline-block gradient-bg text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+        Transparente Preise
+      </span>
+      <h1 class="text-4xl md:text-5xl font-bold text-brand-black mb-6">
+        KI-Assistenten für <span class="gradient-text">jeden Bedarf</span>
+      </h1>
+      <p class="text-xl text-brand-graphite max-w-2xl mx-auto">
+        Ob Telefon, Chat oder beides – wählen Sie das Paket, das zu Ihrem Unternehmen passt. 
+        Monatlich kündbar, keine versteckten Kosten.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Product Tabs -->
+  <section class="pb-8 px-6">
+    <div class="max-w-4xl mx-auto flex justify-center gap-4 flex-wrap">
+      <button onclick="showProduct('voice')" id="tab-voice" class="product-tab px-6 py-3 rounded-xl font-semibold transition-all bg-brand-blue text-white">
+        📞 KI-Anrufbeantworter
+      </button>
+      <button onclick="showProduct('chatbot')" id="tab-chatbot" class="product-tab px-6 py-3 rounded-xl font-semibold transition-all bg-gray-100 text-brand-graphite hover:bg-gray-200">
+        💬 Omni-Channel Chatbot
+      </button>
+      <button onclick="showProduct('kombi')" id="tab-kombi" class="product-tab px-6 py-3 rounded-xl font-semibold transition-all bg-gray-100 text-brand-graphite hover:bg-gray-200">
+        🚀 Kombi-Paket
+      </button>
+    </div>
+  </section>
+  
+  <!-- Voice Pricing -->
+  <section id="product-voice" class="product-section pb-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl font-bold text-brand-black mb-3">KI-Anrufbeantworter</h2>
+        <p class="text-brand-graphite">Nie wieder einen Anruf verpassen – 24/7 Erreichbarkeit</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Basic -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-gray-100 hover-lift">
+          <div class="text-lg font-bold text-brand-black mb-1">Basic</div>
+          <div class="text-sm text-brand-graphite mb-4">Für kleine Betriebe</div>
+          <div class="text-4xl font-bold text-brand-blue mb-1">99€<span class="text-lg font-normal text-brand-graphite">/Mo</span></div>
+          <div class="text-sm text-brand-graphite mb-6">+ 299€ Einrichtung</div>
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 100 Inklusivminuten</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> KI-Anrufannahme 24/7</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> E-Mail Zusammenfassung</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Standard-Begrüßung</li>
+            <li class="flex items-center gap-2 text-gray-400"><span>✗</span> Terminvereinbarung</li>
+          </ul>
+          <a href="/#kontakt" class="block text-center py-3 border-2 border-brand-blue text-brand-blue rounded-xl font-semibold hover:bg-brand-blue hover:text-white transition-colors">
+            Auswählen
+          </a>
+        </div>
+        
+        <!-- Standard -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-brand-blue shadow-xl hover-lift relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 gradient-bg text-white text-xs font-bold px-4 py-1 rounded-full">
+            BELIEBT
+          </div>
+          <div class="text-lg font-bold text-brand-black mb-1">Standard</div>
+          <div class="text-sm text-brand-graphite mb-4">Wachsender Mittelstand</div>
+          <div class="text-4xl font-bold text-brand-blue mb-1">199€<span class="text-lg font-normal text-brand-graphite">/Mo</span></div>
+          <div class="text-sm text-brand-graphite mb-6">+ 299€ Einrichtung</div>
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>500 Inklusivminuten</strong></li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Alles aus Basic</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>Terminvereinbarung</strong></li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> CRM-Integration</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Individuelle Begrüßung</li>
+          </ul>
+          <a href="/#kontakt" class="block text-center py-3 gradient-bg text-white rounded-xl font-semibold hover:opacity-90 transition-opacity">
+            Auswählen
+          </a>
+        </div>
+        
+        <!-- Premium -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-gray-100 hover-lift">
+          <div class="text-lg font-bold text-brand-black mb-1">Premium</div>
+          <div class="text-sm text-brand-graphite mb-4">Für größere Unternehmen</div>
+          <div class="text-4xl font-bold text-brand-blue mb-1">349€<span class="text-lg font-normal text-brand-graphite">/Mo</span></div>
+          <div class="text-sm text-brand-graphite mb-6">+ 499€ Einrichtung</div>
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>1.000 Inklusivminuten</strong></li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Alles aus Standard</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Mehrere Rufnummern</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Custom Voice</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Priority Support</li>
+          </ul>
+          <a href="/#kontakt" class="block text-center py-3 border-2 border-brand-blue text-brand-blue rounded-xl font-semibold hover:bg-brand-blue hover:text-white transition-colors">
+            Auswählen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Chatbot Pricing -->
+  <section id="product-chatbot" class="product-section pb-20 px-6 hidden">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl font-bold text-brand-black mb-3">Omni-Channel Chatbot</h2>
+        <p class="text-brand-graphite">Ein Bot für Website, WhatsApp, Instagram & mehr</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Basic -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-gray-100 hover-lift">
+          <div class="text-lg font-bold text-brand-black mb-1">Basic</div>
+          <div class="text-sm text-brand-graphite mb-4">Für den Einstieg</div>
+          <div class="text-4xl font-bold text-brand-blue mb-1">79€<span class="text-lg font-normal text-brand-graphite">/Mo</span></div>
+          <div class="text-sm text-brand-graphite mb-6">+ 199€ Einrichtung</div>
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1 Kanal (Website)</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 500 Chats / Monat</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> FAQ-Bot</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> E-Mail Benachrichtigung</li>
+            <li class="flex items-center gap-2 text-gray-400"><span>✗</span> Terminbuchung</li>
+          </ul>
+          <a href="/#kontakt" class="block text-center py-3 border-2 border-brand-blue text-brand-blue rounded-xl font-semibold hover:bg-brand-blue hover:text-white transition-colors">
+            Auswählen
+          </a>
+        </div>
+        
+        <!-- Standard -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-brand-blue shadow-xl hover-lift relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 gradient-bg text-white text-xs font-bold px-4 py-1 rounded-full">
+            BELIEBT
+          </div>
+          <div class="text-lg font-bold text-brand-black mb-1">Standard</div>
+          <div class="text-sm text-brand-graphite mb-4">Für wachsende Unternehmen</div>
+          <div class="text-4xl font-bold text-brand-blue mb-1">149€<span class="text-lg font-normal text-brand-graphite">/Mo</span></div>
+          <div class="text-sm text-brand-graphite mb-6">+ 299€ Einrichtung</div>
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>3 Kanäle</strong> (Web+WA+IG)</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>2.000 Chats</strong> / Monat</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>Terminbuchung</strong></li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> CRM-Integration</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Lead-Qualifizierung</li>
+          </ul>
+          <a href="/#kontakt" class="block text-center py-3 gradient-bg text-white rounded-xl font-semibold hover:opacity-90 transition-opacity">
+            Auswählen
+          </a>
+        </div>
+        
+        <!-- Premium -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-gray-100 hover-lift">
+          <div class="text-lg font-bold text-brand-black mb-1">Premium</div>
+          <div class="text-sm text-brand-graphite mb-4">Für maximale Reichweite</div>
+          <div class="text-4xl font-bold text-brand-blue mb-1">279€<span class="text-lg font-normal text-brand-graphite">/Mo</span></div>
+          <div class="text-sm text-brand-graphite mb-6">+ 499€ Einrichtung</div>
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>Alle Kanäle</strong> (5+)</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>Unlimited Chats</strong></li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Alles aus Standard</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Multi-Language</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Priority Support</li>
+          </ul>
+          <a href="/#kontakt" class="block text-center py-3 border-2 border-brand-blue text-brand-blue rounded-xl font-semibold hover:bg-brand-blue hover:text-white transition-colors">
+            Auswählen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Kombi Pricing -->
+  <section id="product-kombi" class="product-section pb-20 px-6 hidden">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl font-bold text-brand-black mb-3">Kombi-Paket</h2>
+        <p class="text-brand-graphite">Voice + Chatbot – bis zu 79€ monatlich sparen</p>
+        <span class="inline-block gradient-purple text-white text-sm font-semibold px-4 py-1.5 rounded-full mt-4">
+          🎁 Beste Wahl für volle Erreichbarkeit
+        </span>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Basic -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-gray-100 hover-lift">
+          <div class="text-lg font-bold text-brand-black mb-1">Kombi Basic</div>
+          <div class="text-sm text-brand-graphite mb-4">Für kleine Betriebe</div>
+          <div class="text-sm text-brand-graphite line-through">Einzeln: 178€/Mo</div>
+          <div class="text-4xl font-bold text-purple-600 mb-1">149€<span class="text-lg font-normal text-brand-graphite">/Mo</span></div>
+          <div class="text-sm text-brand-graphite mb-6">+ 399€ Einrichtung</div>
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 100 Telefon-Minuten</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 500 Chat-Nachrichten</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1 Chat-Kanal</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> E-Mail Benachrichtigung</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Standard-Begrüßung</li>
+          </ul>
+          <a href="/#kontakt" class="block text-center py-3 border-2 border-purple-600 text-purple-600 rounded-xl font-semibold hover:bg-purple-600 hover:text-white transition-colors">
+            Auswählen
+          </a>
+        </div>
+        
+        <!-- Standard -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-purple-600 shadow-xl hover-lift relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 gradient-purple text-white text-xs font-bold px-4 py-1 rounded-full">
+            BESTE WAHL
+          </div>
+          <div class="text-lg font-bold text-brand-black mb-1">Kombi Standard</div>
+          <div class="text-sm text-brand-graphite mb-4">Wachsender Mittelstand</div>
+          <div class="text-sm text-brand-graphite line-through">Einzeln: 348€/Mo</div>
+          <div class="text-4xl font-bold text-purple-600 mb-1">299€<span class="text-lg font-normal text-brand-graphite">/Mo</span></div>
+          <div class="text-sm text-brand-graphite mb-6">+ 499€ Einrichtung</div>
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>500 Telefon-Minuten</strong></li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>2.000 Chat-Nachrichten</strong></li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>3 Kanäle</strong> (Web+WA+IG)</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>Terminbuchung</strong></li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> CRM-Integration</li>
+          </ul>
+          <a href="/#kontakt" class="block text-center py-3 gradient-purple text-white rounded-xl font-semibold hover:opacity-90 transition-opacity">
+            Auswählen
+          </a>
+        </div>
+        
+        <!-- Premium -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-gray-100 hover-lift">
+          <div class="text-lg font-bold text-brand-black mb-1">Kombi Premium</div>
+          <div class="text-sm text-brand-graphite mb-4">Für größere Unternehmen</div>
+          <div class="text-sm text-brand-graphite line-through">Einzeln: 628€/Mo</div>
+          <div class="text-4xl font-bold text-purple-600 mb-1">549€<span class="text-lg font-normal text-brand-graphite">/Mo</span></div>
+          <div class="text-sm text-brand-graphite mb-6">+ 799€ Einrichtung</div>
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>1.000 Telefon-Minuten</strong></li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>Unlimited Chats</strong></li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <strong>Alle Kanäle</strong> (5+)</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Custom Voice</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Priority Support</li>
+          </ul>
+          <a href="/#kontakt" class="block text-center py-3 border-2 border-purple-600 text-purple-600 rounded-xl font-semibold hover:bg-purple-600 hover:text-white transition-colors">
+            Auswählen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-brand-black text-center mb-12">Häufig gestellte Fragen</h2>
+      
+      <div class="space-y-4">
+        <div class="border border-gray-200 rounded-xl">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex justify-between items-center text-left font-semibold">
+            Was passiert wenn mein Kontingent aufgebraucht ist?
+            <span class="text-xl">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-brand-graphite">
+            Der Service läuft weiter. Zusätzliche Nutzung wird fair abgerechnet: Voice 0,25€/Min, Chat 0,05€/Nachricht. Wir informieren Sie rechtzeitig.
+          </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex justify-between items-center text-left font-semibold">
+            Kann ich später upgraden?
+            <span class="text-xl">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-brand-graphite">
+            Ja, jederzeit. Sie können von Basic auf Standard, von Einzel auf Kombi wechseln. Bereits gezahlte Einrichtungsgebühren werden anteilig angerechnet.
+          </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex justify-between items-center text-left font-semibold">
+            Wie schnell ist der Assistent einsatzbereit?
+            <span class="text-xl">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-brand-graphite">
+            In der Regel innerhalb von 24-48 Stunden. Nach dem Erstgespräch richten wir alles für Sie ein – Sie müssen nur noch testen.
+          </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex justify-between items-center text-left font-semibold">
+            Gibt es eine Vertragsbindung?
+            <span class="text-xl">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-brand-graphite">
+            Nein. Alle Pakete sind monatlich kündbar. Zusätzlich bieten wir eine 30-Tage-Geld-zurück-Garantie.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-brand-black mb-4">Bereit für Ihren KI-Assistenten?</h2>
+      <p class="text-lg text-brand-graphite mb-8">
+        Lassen Sie uns in einem kostenlosen Gespräch besprechen, welches Paket am besten zu Ihnen passt.
+      </p>
+      <a href="/#kontakt" class="inline-flex items-center gap-2 gradient-bg text-white font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity text-lg">
+        Kostenloses Erstgespräch buchen
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <p class="mt-4 text-sm text-brand-graphite">
+        ✓ Unverbindlich • ✓ 30-Tage-Geld-zurück • ✓ DSGVO-konform
+      </p>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="py-8 px-6 bg-brand-light border-t border-gray-200 text-center text-brand-graphite text-sm">
+    <p>
+      © 2026 automatiks.io • 
+      <a href="/impressum" class="hover:text-brand-blue">Impressum</a> • 
+      <a href="/datenschutz" class="hover:text-brand-blue">Datenschutz</a>
+    </p>
+  </footer>
+  
+  <script>
+    function showProduct(product) {
+      // Hide all products
+      document.querySelectorAll('.product-section').forEach(el => el.classList.add('hidden'));
+      // Show selected
+      document.getElementById('product-' + product).classList.remove('hidden');
+      
+      // Update tabs
+      document.querySelectorAll('.product-tab').forEach(el => {
+        el.classList.remove('bg-brand-blue', 'text-white');
+        el.classList.add('bg-gray-100', 'text-brand-graphite');
+      });
+      document.getElementById('tab-' + product).classList.remove('bg-gray-100', 'text-brand-graphite');
+      document.getElementById('tab-' + product).classList.add('bg-brand-blue', 'text-white');
+    }
+    
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('span');
+      answer.classList.toggle('hidden');
+      icon.textContent = answer.classList.contains('hidden') ? '+' : '−';
+    }
+  </script>
+</body>
+</html>
