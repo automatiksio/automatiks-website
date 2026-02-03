@@ -7,532 +7,645 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #4285F4;
+            --primary-dark: #3367D6;
+            --dark: #1a1a1a;
+            --medium: #4a4a4a;
+            --light: #6a6a6a;
+            --lighter: #f5f7fa;
+            --white: #ffffff;
+            --success: #10b981;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #4285F4;
-            --dark: #1a1a1a;
-            --medium: #4a4a4a;
-            --light: #6a6a6a;
-            --lighter: #f5f7fa;
-            --white: #ffffff;
-        }
-
-        @page {
-            size: A4;
-            margin: 15mm;
-        }
-
         body {
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            font-size: 10pt;
-            line-height: 1.4;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
             color: var(--dark);
+            background: #e0e0e0;
+            line-height: 1.6;
+            font-size: 11pt;
         }
 
-        /* Screen only - preview wrapper */
-        @media screen {
-            body {
-                background: #888;
-                padding: 20px;
-            }
-            .page {
-                background: white;
-                width: 210mm;
-                min-height: 297mm;
-                margin: 0 auto 20px;
-                padding: 15mm;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            }
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: var(--white);
+            margin: 20px auto;
+            padding: 15mm 20mm;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
-        /* Print */
-        @media print {
-            body {
-                background: white;
-            }
-            .page {
-                padding: 0;
-                margin: 0;
-                box-shadow: none;
-            }
-            .page-break {
-                page-break-before: always;
-            }
-        }
-
-        /* === COMPONENTS === */
+        /* Header */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary);
-            margin-bottom: 15px;
+            padding-bottom: 8mm;
+            border-bottom: 3px solid var(--primary);
+            margin-bottom: 8mm;
         }
 
         .logo {
-            font-size: 16pt;
+            font-size: 18px;
             font-weight: 800;
             color: var(--dark);
+            line-height: 1.3;
         }
 
         .logo span {
             display: block;
-            font-size: 9pt;
+            font-size: 11px;
             font-weight: 500;
             color: var(--light);
         }
 
         .company-info {
             text-align: right;
-            font-size: 8pt;
+            font-size: 9pt;
             color: var(--light);
             line-height: 1.5;
         }
 
+        /* Meta Info */
         .meta {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 9pt;
+            margin-bottom: 10mm;
+        }
+
+        .meta-left, .meta-right {
+            font-size: 10pt;
         }
 
         .meta-label {
-            font-size: 8pt;
             color: var(--light);
+            font-size: 9pt;
+            margin-bottom: 1mm;
         }
 
         .meta-value {
             font-weight: 600;
+            color: var(--dark);
         }
 
-        .title-box {
+        /* Title */
+        .title-section {
             background: var(--lighter);
-            padding: 12px 15px;
-            margin-bottom: 12px;
+            padding: 6mm;
+            border-radius: 4px;
+            margin-bottom: 8mm;
         }
 
-        .title-box h1 {
-            font-size: 14pt;
+        .title {
+            font-size: 18pt;
             font-weight: 700;
-            margin-bottom: 3px;
+            color: var(--dark);
+            margin-bottom: 2mm;
         }
 
-        .title-box p {
-            font-size: 10pt;
+        .subtitle {
+            font-size: 11pt;
             color: var(--medium);
         }
 
+        /* Intro */
         .intro {
-            font-size: 9pt;
+            margin-bottom: 8mm;
             color: var(--medium);
-            margin-bottom: 12px;
-            line-height: 1.5;
+            line-height: 1.7;
         }
 
-        .highlight {
-            background: var(--primary);
+        .intro strong {
+            color: var(--dark);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary), #60a5fa);
             color: white;
-            padding: 10px 12px;
-            margin-bottom: 15px;
+            padding: 5mm 6mm;
+            border-radius: 4px;
+            margin-bottom: 8mm;
             display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            font-size: 9pt;
-            line-height: 1.4;
+            align-items: center;
+            gap: 4mm;
         }
 
         .highlight-icon {
-            font-size: 16pt;
-            flex-shrink: 0;
+            font-size: 24px;
         }
 
-        h2 {
-            font-size: 11pt;
+        .highlight-text {
+            font-size: 10pt;
+            line-height: 1.5;
+        }
+
+        .highlight-text strong {
             font-weight: 700;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #eee;
+        }
+
+        /* Modules */
+        .section-title {
+            font-size: 13pt;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5mm;
+            padding-bottom: 2mm;
+            border-bottom: 2px solid var(--lighter);
         }
 
         .module {
-            border: 1px solid #ddd;
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            page-break-inside: avoid;
+            margin-bottom: 6mm;
+            padding: 5mm;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
         }
 
-        .module.optional {
-            border-style: dashed;
-            opacity: 0.8;
-        }
-
-        .module-head {
+        .module-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
+            align-items: center;
+            margin-bottom: 3mm;
         }
 
         .module-title {
-            font-size: 10pt;
+            font-size: 12pt;
             font-weight: 700;
+            color: var(--dark);
         }
 
         .module-price {
-            font-size: 12pt;
+            font-size: 14pt;
             font-weight: 800;
             color: var(--primary);
         }
 
         .module-desc {
-            font-size: 9pt;
+            font-size: 10pt;
             color: var(--medium);
-            margin-bottom: 8px;
+            margin-bottom: 3mm;
         }
 
-        .tags {
+        .module-features {
             display: flex;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: 2mm;
         }
 
-        .tag {
+        .feature-tag {
             background: var(--lighter);
-            font-size: 8pt;
-            padding: 2px 6px;
             color: var(--medium);
+            font-size: 9pt;
+            padding: 1.5mm 3mm;
+            border-radius: 3px;
         }
 
-        .opt-badge {
-            background: #eee;
-            font-size: 7pt;
-            padding: 1px 5px;
-            margin-left: 5px;
+        .module.optional {
+            border-style: dashed;
+            opacity: 0.85;
+        }
+
+        .optional-badge {
+            background: var(--lighter);
             color: var(--light);
+            font-size: 8pt;
             font-weight: 600;
+            padding: 1mm 2.5mm;
+            border-radius: 2px;
+            margin-left: 3mm;
         }
 
+        /* Summary */
         .summary {
             background: var(--dark);
-            color: white;
-            padding: 12px 15px;
-            margin-top: 12px;
+            color: var(--white);
+            padding: 6mm;
+            border-radius: 4px;
+            margin-top: 8mm;
         }
 
         .summary-row {
             display: flex;
             justify-content: space-between;
-            padding: 4px 0;
-            font-size: 9pt;
+            padding: 2mm 0;
+            font-size: 10pt;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
         }
 
         .summary-row.total {
-            border-top: 1px solid rgba(255,255,255,0.2);
-            margin-top: 5px;
-            padding-top: 8px;
-            font-size: 12pt;
+            font-size: 14pt;
             font-weight: 700;
+            padding-top: 4mm;
+            margin-top: 2mm;
+            border-top: 2px solid rgba(255,255,255,0.3);
         }
 
+        /* Timeline */
         .timeline {
-            margin-top: 15px;
+            margin-top: 8mm;
         }
 
         .timeline-row {
             display: flex;
-            font-size: 9pt;
-            padding: 5px 0;
-            border-bottom: 1px solid #eee;
+            gap: 4mm;
+            padding: 3mm 0;
+            border-bottom: 1px solid var(--lighter);
         }
 
-        .timeline-row:last-child {
-            border-bottom: none;
+        .timeline-phase {
+            width: 25mm;
             font-weight: 600;
-        }
-
-        .tl-phase {
-            width: 60px;
             color: var(--primary);
-            font-weight: 600;
+            font-size: 10pt;
         }
 
-        .tl-time {
-            width: 70px;
+        .timeline-duration {
+            width: 20mm;
             color: var(--light);
+            font-size: 10pt;
         }
 
-        .tl-desc {
+        .timeline-content {
             flex: 1;
+            font-size: 10pt;
+            color: var(--medium);
         }
 
+        /* Footer */
         .footer {
-            margin-top: 20px;
-            padding-top: 10px;
-            border-top: 1px solid #eee;
-            font-size: 8pt;
-            color: var(--light);
+            margin-top: 10mm;
+            padding-top: 5mm;
+            border-top: 1px solid #e0e0e0;
             display: flex;
             justify-content: space-between;
+            font-size: 9pt;
+            color: var(--light);
         }
 
         /* Page 2 */
-        .terms h3 {
-            font-size: 10pt;
-            font-weight: 700;
-            margin: 12px 0 6px;
+        .terms {
+            font-size: 9pt;
+            color: var(--medium);
+            line-height: 1.7;
         }
 
-        .terms h3:first-child {
-            margin-top: 0;
+        .terms h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 5mm 0 3mm;
         }
 
         .terms ul {
-            margin-left: 15px;
-            font-size: 9pt;
-            color: var(--medium);
+            margin-left: 5mm;
+            margin-bottom: 3mm;
         }
 
         .terms li {
-            margin-bottom: 3px;
+            margin-bottom: 1.5mm;
         }
 
-        .terms p {
-            font-size: 9pt;
-            color: var(--medium);
-            margin-top: 4px;
-        }
-
-        .bank {
-            background: var(--lighter);
-            padding: 8px 10px;
-            font-size: 8pt;
-            margin-top: 15px;
-        }
-
-        .signatures {
+        .signature-section {
+            margin-top: 15mm;
             display: flex;
-            gap: 40px;
-            margin-top: 25px;
+            gap: 20mm;
         }
 
-        .sig-box {
+        .signature-box {
             flex: 1;
         }
 
-        .sig-line {
+        .signature-line {
             border-bottom: 1px solid var(--dark);
-            height: 30px;
-            margin-bottom: 5px;
+            height: 15mm;
+            margin-bottom: 2mm;
         }
 
-        .sig-label {
-            font-size: 8pt;
+        .signature-label {
+            font-size: 9pt;
             color: var(--light);
+        }
+
+        .bank-info {
+            margin-top: 8mm;
+            padding: 4mm;
+            background: var(--lighter);
+            border-radius: 4px;
+            font-size: 9pt;
+        }
+
+        .bank-info strong {
+            color: var(--dark);
+        }
+
+        /* Print */
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
         }
     </style>
 </head>
 <body>
+    <!-- SEITE 1 -->
+    <div class="page">
+        <header class="header">
+            <div class="logo">
+                Christian Kastner
+                <span>Digital Solutions</span>
+            </div>
+            <div class="company-info">
+                Schubertring 45, 91074 Herzogenaurach<br>
+                Tel. 0151 41679955<br>
+                info@christiankastner.de
+            </div>
+        </header>
 
-<!-- SEITE 1 -->
-<div class="page">
-    <div class="header">
-        <div class="logo">Christian Kastner<span>Digital Solutions</span></div>
-        <div class="company-info">Schubertring 45, 91074 Herzogenaurach<br>0151 41679955 · info@christiankastner.de</div>
-    </div>
-
-    <div class="meta">
-        <div>
-            <div class="meta-label">Angebot für</div>
-            <div class="meta-value">Andreas Wagner</div>
-            <div class="meta-label">Andreas Wagner Kompetenzzentrum</div>
+        <div class="meta">
+            <div class="meta-left">
+                <div class="meta-label">Angebot für</div>
+                <div class="meta-value">Andreas Wagner</div>
+                <div style="color: var(--light); font-size: 9pt;">Andreas Wagner Kompetenzzentrum</div>
+            </div>
+            <div class="meta-right" style="text-align: right;">
+                <div class="meta-label">Datum</div>
+                <div class="meta-value">03. Februar 2026</div>
+                <div style="color: var(--light); font-size: 9pt; margin-top: 2mm;">Gültig bis: 03. März 2026</div>
+            </div>
         </div>
-        <div style="text-align:right">
-            <div class="meta-label">Datum</div>
-            <div class="meta-value">03. Februar 2026</div>
-            <div class="meta-label">Gültig bis 03. März 2026</div>
+
+        <div class="title-section">
+            <h1 class="title">Buchungs- & Abrechnungssystem für Yoga-Studios</h1>
+            <p class="subtitle">GoHighLevel + LexOffice + iPad Check-in</p>
         </div>
-    </div>
 
-    <div class="title-box">
-        <h1>Buchungs- & Abrechnungssystem für Yoga-Studios</h1>
-        <p>GoHighLevel + LexOffice + iPad Check-in</p>
-    </div>
-
-    <div class="intro">
-        Basierend auf unserem Gespräch erstelle ich dir ein <strong>vollständiges Buchungs- und Abrechnungssystem</strong>, 
-        das deine bestehende MindBody-Lösung ablöst. Das System baut auf GoHighLevel auf und wird mit LexOffice 
-        für die Rechnungsstellung sowie einer iPad-App für den Check-in vor Ort ergänzt.
-    </div>
-
-    <div class="highlight">
-        <div class="highlight-icon">🚀</div>
-        <div><strong>Multiplikations-ready:</strong> Das System wird so aufgebaut, dass du es als Snapshot an weitere Studios und YOGAPRENEUR-Kunden weitergeben kannst. Alle Einstellungen sind über Custom Values konfigurierbar – einmal gebaut, beliebig oft genutzt.</div>
-    </div>
-
-    <h2>Leistungsumfang</h2>
-
-    <div class="module">
-        <div class="module-head">
-            <div class="module-title">Modul 1: Guthaben-System (YMUM-Erweiterung)</div>
-            <div class="module-price">1.200 €</div>
+        <div class="intro">
+            <p>
+                Basierend auf unserem Gespräch erstelle ich dir ein <strong>vollständiges Buchungs- und Abrechnungssystem</strong>, 
+                das deine bestehende MindBody-Lösung ablöst. Das System baut auf GoHighLevel auf und wird mit LexOffice 
+                für die Rechnungsstellung sowie einer iPad-App für den Check-in vor Ort ergänzt.
+            </p>
         </div>
-        <div class="module-desc">Erweiterung des bestehenden YMUM-Snapshots um Guthaben-/Kontingent-Logik. Kunden können 10er-Karten erwerben, Guthaben wird automatisch verwaltet.</div>
-        <div class="tags">
-            <span class="tag">Guthaben-Tracking</span>
-            <span class="tag">Abzug bei Buchung</span>
-            <span class="tag">Alert bei 0</span>
-            <span class="tag">Kontingent-Kauf</span>
-            <span class="tag">Custom Values</span>
-            <span class="tag">Snapshot-Export</span>
+
+        <div class="highlight-box">
+            <div class="highlight-icon">🚀</div>
+            <div class="highlight-text">
+                <strong>Multiplikations-ready:</strong> Das System wird so aufgebaut, dass du es als Snapshot 
+                an weitere Studios und YOGAPRENEUR-Kunden weitergeben kannst. Alle Einstellungen sind über 
+                Custom Values konfigurierbar – einmal gebaut, beliebig oft genutzt.
+            </div>
         </div>
-    </div>
 
-    <div class="module">
-        <div class="module-head">
-            <div class="module-title">Modul 2: iPad Check-in App</div>
-            <div class="module-price">1.500 €</div>
+        <h2 class="section-title">Leistungsumfang</h2>
+
+        <div class="module">
+            <div class="module-header">
+                <div class="module-title">Modul 1: Guthaben-System (YMUM-Erweiterung)</div>
+                <div class="module-price">1.200 €</div>
+            </div>
+            <p class="module-desc">
+                Erweiterung des bestehenden YMUM-Snapshots um Guthaben-/Kontingent-Logik. 
+                Kunden können 10er-Karten erwerben, Guthaben wird automatisch verwaltet.
+            </p>
+            <div class="module-features">
+                <span class="feature-tag">Guthaben-Tracking (Custom Field)</span>
+                <span class="feature-tag">Guthaben-Abzug bei Buchung</span>
+                <span class="feature-tag">Alert bei Guthaben = 0</span>
+                <span class="feature-tag">Kontingent-Kauf Workflow</span>
+                <span class="feature-tag">Custom Values für Preise</span>
+                <span class="feature-tag">Snapshot-Export für Weiterverkauf</span>
+            </div>
         </div>
-        <div class="module-desc">Web-App für das iPad im Studio. Kunden können sich selbst einchecken, Guthaben einsehen und bei Bedarf direkt nachbuchen.</div>
-        <div class="tags">
-            <span class="tag">Kundensuche</span>
-            <span class="tag">Guthaben-Anzeige</span>
-            <span class="tag">Check-in</span>
-            <span class="tag">Nachbuchen</span>
-            <span class="tag">Neukunden</span>
-            <span class="tag">Lange Session</span>
+
+        <div class="module">
+            <div class="module-header">
+                <div class="module-title">Modul 2: iPad Check-in App</div>
+                <div class="module-price">1.500 €</div>
+            </div>
+            <p class="module-desc">
+                Web-App für das iPad im Studio. Kunden können sich selbst einchecken, 
+                Guthaben einsehen und bei Bedarf direkt nachbuchen.
+            </p>
+            <div class="module-features">
+                <span class="feature-tag">Kundensuche (Name/Email)</span>
+                <span class="feature-tag">Guthaben-Anzeige</span>
+                <span class="feature-tag">Check-in mit einem Tap</span>
+                <span class="feature-tag">Kontingent nachbuchen</span>
+                <span class="feature-tag">Neukunden-Erfassung</span>
+                <span class="feature-tag">Lange Session (kein ständiges Login)</span>
+            </div>
         </div>
-    </div>
 
-    <div class="module">
-        <div class="module-head">
-            <div class="module-title">Modul 3: LexOffice Anbindung</div>
-            <div class="module-price">1.800 €</div>
+        <div class="module">
+            <div class="module-header">
+                <div class="module-title">Modul 3: LexOffice Anbindung</div>
+                <div class="module-price">1.800 €</div>
+            </div>
+            <p class="module-desc">
+                Vollständige Integration mit LexOffice für automatische Rechnungsstellung, 
+                Zahlungsüberwachung und Mahnwesen.
+            </p>
+            <div class="module-features">
+                <span class="feature-tag">Kontakt-Synchronisation</span>
+                <span class="feature-tag">Automatische Rechnungserstellung</span>
+                <span class="feature-tag">Rechnungsversand per Email</span>
+                <span class="feature-tag">Zahlungsstatus-Prüfung</span>
+                <span class="feature-tag">Zahlungserinnerungen (konfigurierbar)</span>
+            </div>
         </div>
-        <div class="module-desc">Vollständige Integration mit LexOffice für automatische Rechnungsstellung, Zahlungsüberwachung und Mahnwesen.</div>
-        <div class="tags">
-            <span class="tag">Kontakt-Sync</span>
-            <span class="tag">Auto-Rechnung</span>
-            <span class="tag">Versand</span>
-            <span class="tag">Zahlungsprüfung</span>
-            <span class="tag">Erinnerungen</span>
+
+        <div class="module optional">
+            <div class="module-header">
+                <div class="module-title">Modul 4: MindBody Migration <span class="optional-badge">OPTIONAL</span></div>
+                <div class="module-price">800 €</div>
+            </div>
+            <p class="module-desc">
+                Übernahme deiner bestehenden Kundendaten und Guthaben aus MindBody in das neue System.
+            </p>
+            <div class="module-features">
+                <span class="feature-tag">Kundendaten-Export</span>
+                <span class="feature-tag">Import in GHL</span>
+                <span class="feature-tag">Guthaben übernehmen</span>
+                <span class="feature-tag">Datenbereinigung</span>
+            </div>
         </div>
-    </div>
 
-    <div class="module optional">
-        <div class="module-head">
-            <div class="module-title">Modul 4: MindBody Migration<span class="opt-badge">OPTIONAL</span></div>
-            <div class="module-price">800 €</div>
+        <div class="summary">
+            <div class="summary-row">
+                <span>Modul 1: Guthaben-System (YMUM-Erweiterung)</span>
+                <span>1.200 €</span>
+            </div>
+            <div class="summary-row">
+                <span>Modul 2: iPad Check-in App</span>
+                <span>1.500 €</span>
+            </div>
+            <div class="summary-row">
+                <span>Modul 3: LexOffice Anbindung</span>
+                <span>1.800 €</span>
+            </div>
+            <div class="summary-row" style="opacity: 0.6;">
+                <span>Modul 4: Migration (optional)</span>
+                <span>800 €</span>
+            </div>
+            <div class="summary-row total">
+                <span>Gesamtpreis (Module 1-3)</span>
+                <span>4.500 €</span>
+            </div>
         </div>
-        <div class="module-desc">Übernahme deiner bestehenden Kundendaten und Guthaben aus MindBody in das neue System.</div>
-        <div class="tags">
-            <span class="tag">Daten-Export</span>
-            <span class="tag">Import GHL</span>
-            <span class="tag">Guthaben</span>
-            <span class="tag">Bereinigung</span>
+
+        <div class="timeline">
+            <h2 class="section-title">Zeitplan</h2>
+            <div class="timeline-row">
+                <div class="timeline-phase">Phase 1</div>
+                <div class="timeline-duration">1-2 Wochen</div>
+                <div class="timeline-content">Guthaben-System in GHL aufbauen und testen</div>
+            </div>
+            <div class="timeline-row">
+                <div class="timeline-phase">Phase 2</div>
+                <div class="timeline-duration">1 Woche</div>
+                <div class="timeline-content">iPad Check-in App entwickeln</div>
+            </div>
+            <div class="timeline-row">
+                <div class="timeline-phase">Phase 3</div>
+                <div class="timeline-duration">1-2 Wochen</div>
+                <div class="timeline-content">LexOffice Integration + Workflows</div>
+            </div>
+            <div class="timeline-row">
+                <div class="timeline-phase">Go-Live</div>
+                <div class="timeline-duration">1 Woche</div>
+                <div class="timeline-content">Feinschliff, Test vor Ort, Live-Schaltung</div>
+            </div>
+            <div class="timeline-row" style="border-bottom: none; font-weight: 600;">
+                <div class="timeline-phase"></div>
+                <div class="timeline-duration" style="color: var(--primary);">4-6 Wochen</div>
+                <div class="timeline-content" style="color: var(--dark);">Gesamtdauer</div>
+            </div>
         </div>
-    </div>
 
-    <div class="summary">
-        <div class="summary-row"><span>Modul 1: Guthaben-System</span><span>1.200 €</span></div>
-        <div class="summary-row"><span>Modul 2: iPad Check-in App</span><span>1.500 €</span></div>
-        <div class="summary-row"><span>Modul 3: LexOffice Anbindung</span><span>1.800 €</span></div>
-        <div class="summary-row" style="opacity:0.5"><span>Modul 4: Migration (optional)</span><span>800 €</span></div>
-        <div class="summary-row total"><span>Gesamtpreis (Module 1–3)</span><span>4.500 €</span></div>
-    </div>
-
-    <div class="timeline">
-        <h2>Zeitplan</h2>
-        <div class="timeline-row"><div class="tl-phase">Phase 1</div><div class="tl-time">1–2 Wochen</div><div class="tl-desc">Guthaben-System in GHL aufbauen und testen</div></div>
-        <div class="timeline-row"><div class="tl-phase">Phase 2</div><div class="tl-time">1 Woche</div><div class="tl-desc">iPad Check-in App entwickeln</div></div>
-        <div class="timeline-row"><div class="tl-phase">Phase 3</div><div class="tl-time">1–2 Wochen</div><div class="tl-desc">LexOffice Integration + Workflows</div></div>
-        <div class="timeline-row"><div class="tl-phase">Go-Live</div><div class="tl-time">1 Woche</div><div class="tl-desc">Feinschliff, Test vor Ort, Live-Schaltung</div></div>
-        <div class="timeline-row"><div class="tl-phase"></div><div class="tl-time" style="color:var(--primary)">4–6 Wochen</div><div class="tl-desc">Gesamtdauer</div></div>
-    </div>
-
-    <div class="footer">
-        <div>Christian Kastner Digital Solutions</div>
-        <div>Seite 1 von 2</div>
-    </div>
-</div>
-
-<!-- SEITE 2 -->
-<div class="page page-break">
-    <div class="header">
-        <div class="logo">Christian Kastner<span>Digital Solutions</span></div>
-        <div class="company-info">Angebot für Andreas Wagner<br>03. Februar 2026</div>
-    </div>
-
-    <div class="terms">
-        <h3>Zahlungsbedingungen</h3>
-        <ul>
-            <li>50% bei Auftragserteilung</li>
-            <li>50% bei Go-Live / Abnahme</li>
-            <li>Zahlungsziel: 7 Tage netto</li>
-        </ul>
-
-        <h3>Voraussetzungen</h3>
-        <ul>
-            <li>Bestehender GoHighLevel Account (vorhanden ✓)</li>
-            <li>LexOffice Account mit API-Zugang (wird benötigt)</li>
-            <li>iPad für Check-in Terminal – Testing erfolgt bei mir, Endtest vor Ort durch dich</li>
-        </ul>
-
-        <h3>Im Preis enthalten</h3>
-        <ul>
-            <li>Konzeption und technische Umsetzung</li>
-            <li>Snapshot-Export für Weiterverkauf an andere Studios</li>
-            <li>Dokumentation der Custom Values und Konfiguration</li>
-            <li>1× Schulung / Übergabe (remote, ca. 1 Stunde)</li>
-            <li>2 Wochen Support nach Go-Live für Feinkorrekturen</li>
-        </ul>
-
-        <h3>Nicht enthalten</h3>
-        <ul>
-            <li>Laufende GoHighLevel Lizenzkosten</li>
-            <li>Laufende LexOffice Lizenzkosten</li>
-            <li>Hardware (iPad)</li>
-            <li>Laufender Support / Wartung (optional buchbar)</li>
-        </ul>
-
-        <h3>Snapshot / Weiterverkauf</h3>
-        <p>Das System wird so konzipiert, dass es als <strong>GoHighLevel Snapshot</strong> exportiert und in andere Accounts importiert werden kann. Alle individuellen Einstellungen (Preise, Texte, Studio-Name, etc.) sind über Custom Values konfigurierbar. Dies ermöglicht:</p>
-        <ul>
-            <li><strong>Eigene Studios:</strong> Einfache Übernahme in weitere Standorte</li>
-            <li><strong>YOGAPRENEUR:</strong> Weiterverkauf an deine GoHighLevel-Kunden</li>
-        </ul>
-        <p>Die Rechte am Snapshot verbleiben bei dir – du kannst ihn beliebig oft nutzen und vertreiben.</p>
-
-        <h3>Änderungen & Erweiterungen</h3>
-        <p>Änderungswünsche während der Umsetzung sind möglich. Umfangreichere Erweiterungen, die über den hier definierten Scope hinausgehen, werden nach Aufwand zum vereinbarten Stundensatz berechnet.</p>
-
-        <div class="bank">
-            <strong>Bankverbindung</strong><br>
-            Revolut Bank UAB · IBAN DE23 1001 0178 9061 9632 51 · BIC REVODEB2
-        </div>
-    </div>
-
-    <div class="signatures">
-        <div class="sig-box">
-            <div class="sig-line"></div>
-            <div class="sig-label">Ort, Datum</div>
-        </div>
-        <div class="sig-box">
-            <div class="sig-line"></div>
-            <div class="sig-label">Unterschrift Auftraggeber</div>
+        <div class="footer">
+            <div>Christian Kastner Digital Solutions</div>
+            <div>Seite 1 von 2</div>
         </div>
     </div>
 
-    <div class="footer">
-        <div>Christian Kastner Digital Solutions · Schubertring 45, 91074 Herzogenaurach · USt-ID DE286417522</div>
-        <div>Seite 2 von 2</div>
-    </div>
-</div>
+    <!-- SEITE 2 -->
+    <div class="page">
+        <header class="header">
+            <div class="logo">
+                Christian Kastner
+                <span>Digital Solutions</span>
+            </div>
+            <div class="company-info">
+                Angebot für Andreas Wagner<br>
+                03. Februar 2026
+            </div>
+        </header>
 
+        <div class="terms">
+            <h3>Zahlungsbedingungen</h3>
+            <ul>
+                <li>50% bei Auftragserteilung</li>
+                <li>50% bei Go-Live / Abnahme</li>
+                <li>Zahlungsziel: 7 Tage netto</li>
+            </ul>
+
+            <h3>Voraussetzungen</h3>
+            <ul>
+                <li>Bestehender GoHighLevel Account (vorhanden ✓)</li>
+                <li>LexOffice Account mit API-Zugang (wird benötigt)</li>
+                <li>iPad für Check-in Terminal – Testing erfolgt bei mir, Endtest vor Ort durch dich</li>
+            </ul>
+
+            <h3>Im Preis enthalten</h3>
+            <ul>
+                <li>Konzeption und technische Umsetzung</li>
+                <li>Snapshot-Export für Weiterverkauf an andere Studios</li>
+                <li>Dokumentation der Custom Values und Konfiguration</li>
+                <li>1x Schulung / Übergabe (remote, ca. 1 Stunde)</li>
+                <li>2 Wochen Support nach Go-Live für Feinkorrekturen</li>
+            </ul>
+
+            <h3>Nicht enthalten</h3>
+            <ul>
+                <li>Laufende GoHighLevel Lizenzkosten</li>
+                <li>Laufende LexOffice Lizenzkosten</li>
+                <li>Hardware (iPad)</li>
+                <li>Laufender Support / Wartung (optional buchbar)</li>
+            </ul>
+
+            <h3>Snapshot / Weiterverkauf</h3>
+            <p style="margin-top: 2mm;">
+                Das System wird so konzipiert, dass es als <strong>GoHighLevel Snapshot</strong> exportiert und 
+                in andere Accounts importiert werden kann. Alle individuellen Einstellungen (Preise, Texte, 
+                Studio-Name, etc.) sind über Custom Values konfigurierbar. Dies ermöglicht:
+            </p>
+            <ul style="margin-top: 3mm;">
+                <li><strong>Eigene Studios:</strong> Einfache Übernahme in weitere Standorte</li>
+                <li><strong>YOGAPRENEUR:</strong> Weiterverkauf an deine GoHighLevel-Kunden</li>
+            </ul>
+            <p style="margin-top: 3mm;">
+                Die Rechte am Snapshot verbleiben bei dir – du kannst ihn beliebig oft nutzen und vertreiben.
+            </p>
+
+            <h3>Änderungen & Erweiterungen</h3>
+            <p style="margin-top: 2mm;">
+                Änderungswünsche während der Umsetzung sind möglich. Umfangreichere Erweiterungen, 
+                die über den hier definierten Scope hinausgehen, werden nach Aufwand zum vereinbarten Stundensatz berechnet.
+            </p>
+
+            <div class="bank-info">
+                <strong>Bankverbindung</strong><br>
+                Revolut Bank UAB<br>
+                IBAN: DE23 1001 0178 9061 9632 51<br>
+                BIC: REVODEB2
+            </div>
+        </div>
+
+        <div class="signature-section">
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <div class="signature-label">Ort, Datum</div>
+            </div>
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <div class="signature-label">Unterschrift Auftraggeber</div>
+            </div>
+        </div>
+
+        <div class="footer" style="margin-top: auto;">
+            <div>
+                Christian Kastner Digital Solutions | Schubertring 45, 91074 Herzogenaurach<br>
+                USt.-ID: DE286417522 | Steuer-Nr.: 83227/46940 | Inhaber: Christian Kastner
+            </div>
+            <div>Seite 2 von 2</div>
+        </div>
+    </div>
 </body>
 </html>
